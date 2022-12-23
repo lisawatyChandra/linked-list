@@ -125,7 +125,11 @@ public class DoublyLinkedList {
     }
 
     public Node removeByData(String data) {
+        // assign a placeholder to point at the removed node
         Node nodeToRemove = null;
+        // assign a pointer to current node as we will be iterating
+        // through the list node by node, initially, current node
+        // will be pointing the head node
         Node currentNode = this.head;
 
         while (currentNode != null) {
@@ -133,6 +137,7 @@ public class DoublyLinkedList {
                 nodeToRemove = currentNode;
                 break;
             }
+            // move on the next node
             currentNode = currentNode.getNextNode();
         }
 
@@ -140,13 +145,23 @@ public class DoublyLinkedList {
             return null;
         }
 
+        // reset the pointers of adjacent nodes
         if (nodeToRemove == this.head) {
+            // to make the necessary changes to the head of the list, that is,
+            // to reset the pointer of the removed node's next node and
+            // to update the list's head pointer
             this.removeHead();
         } else if (nodeToRemove == this.tail) {
+            // to make the necessary changes to the tail of the list, that is,
+            // to reset the pointer of the removed node's previous node and
+            // to update the list's tail pointer
             this.removeTail();
         } else {
+            // assign a pointer to the next node that the removed node was pointing to
             Node nextNode = nodeToRemove.getNextNode();
+            // assign a pointer to the previous node that the removed node was pointing to
             Node previousNode = nodeToRemove.getPreviousNode();
+            // reset the pointers the removed node's next node and previous node
             nextNode.setPreviousNode(previousNode);
             previousNode.setNextNode(nextNode);
         }
