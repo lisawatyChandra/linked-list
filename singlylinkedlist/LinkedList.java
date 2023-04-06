@@ -8,8 +8,14 @@ public class LinkedList {
     }
 
     public void addToHead(String data) {
+        // create a new node that will be added to the head of the list
+        // assign a pointer to this new node, we'll call the pointer
+        // newHead
         Node newHead = new Node(data);
+        // assign a pointer to the current head, we'll call this pointer
+        // currentHead
         Node currentHead = this.head;
+        // assign this list's current head to newHead
         this.head = newHead;
 
         if (currentHead != null) {
