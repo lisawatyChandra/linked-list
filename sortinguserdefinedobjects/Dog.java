@@ -1,4 +1,4 @@
-package comparator.example1;
+package sortinguserdefinedobjects;
 
 import java.util.ArrayList;
 import java.util.Collections;
@@ -43,8 +43,8 @@ public class Dog implements Comparator<Dog>, Comparable<Dog> {
     // this method is used to determine this object's
     // natural ordering
     @Override
-    public int compareTo(Dog dog) {
-        return getDogName().compareTo(dog.getDogName());
+    public int compareTo(Dog otherDog) {
+        return getDogName().compareTo(otherDog.getDogName());
     }
 
     // this method overrides Comparator#compare method,
