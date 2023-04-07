@@ -47,11 +47,11 @@ public class Employee {
 
         System.out.println();
 
-        Collections.sort(employees, Comparator.comparing(Employee::getJoinDate));
-        System.out.println("Employees sorted by join date in ascending order:");
-        for (Employee employee : employees) {
-            System.out.println(employee);
-        }
+//        Collections.sort(employees, Comparator.comparing(Employee::getJoinDate));
+//        System.out.println("Employees sorted by join date in ascending order:");
+//        for (Employee employee : employees) {
+//            System.out.println(employee);
+//        }
 
         System.out.println();
 
@@ -71,5 +71,22 @@ public class Employee {
         }
 
         System.out.println();
+
+        /*
+            We can also use lambda expression for the second argument to `Collections.sort()`
+         */
+        Collections.sort(employees, (e1, e2) -> {
+            if (e1.getJoinDate().compareTo(e2.getJoinDate()) > 0) {
+                return 1;
+            } else if (e1.getJoinDate().compareTo(e2.getJoinDate()) < 0) {
+                return -1;
+            } else {
+                return 0;
+            }
+        });
+        System.out.println("Employees sorted by join date in ascending order:");
+        for (Employee employee : employees) {
+            System.out.println(employee);
+        }
     }
 }
